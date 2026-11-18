@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://dpo3bq84wwrv6"]
 
 [ext_resource type="PackedScene" uid="uid://cv7b8ebbp10qx" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://c5hrjgh7vdwy4" path="res://Scenes/bullet_catcher.tscn" id="2_bo1nx"]
 
 [node name="main" type="Node" unique_id=1865341963]
 
 [node name="Player" parent="." unique_id=1476773010 instance=ExtResource("1_jjgbg")]
 position = Vector2(0, 302)
 scale = Vector2(4, 4)
-speed = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=244562660]
+
+[node name="BulletCatcher" parent="." unique_id=1132660673 instance=ExtResource("2_bo1nx")]
+position = Vector2(0, -315)
