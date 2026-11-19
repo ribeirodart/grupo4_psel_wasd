@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://c5hrjgh7vdwy4" path="res://Scenes/bullet_catcher.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://4dxfnddxvppy" path="res://Scenes/invader_spawner.tscn" id="3_8gbba"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4t2"]
+size = Vector2(20, 667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqvok"]
+size = Vector2(1141, 57)
+
 [node name="main" type="Node" unique_id=1865341963]
 
 [node name="Player" parent="." unique_id=1476773010 instance=ExtResource("1_jjgbg")]
@@ -17,3 +23,30 @@ position = Vector2(0, -315)
 
 [node name="InvaderSpawner" parent="." unique_id=1554357854 instance=ExtResource("3_8gbba")]
 position = Vector2(0, -190)
+
+[node name="Walls" type="Node" parent="." unique_id=254609610]
+
+[node name="RightWall" type="Area2D" parent="Walls" unique_id=783681770]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall" unique_id=449170713]
+position = Vector2(576, 1.5)
+shape = SubResource("RectangleShape2D_bj4t2")
+
+[node name="LeftWall" type="Area2D" parent="Walls" unique_id=874058650]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall" unique_id=349568160]
+position = Vector2(-576, 2)
+shape = SubResource("RectangleShape2D_bj4t2")
+
+[node name="BottomWall" type="Area2D" parent="Walls" unique_id=609576177]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall" unique_id=573639222]
+position = Vector2(2, 297.5)
+shape = SubResource("RectangleShape2D_mqvok")
+
+[connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]
+[connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawner" method="_on_left_wall_area_entered"]
