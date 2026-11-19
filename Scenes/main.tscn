@@ -16,3 +16,4 @@ scale = Vector2(4, 4)
 position = Vector2(0, -315)
 
 [node name="InvaderSpawner" parent="." unique_id=1554357854 instance=ExtResource("3_8gbba")]
+position = Vector2(0, -190)
