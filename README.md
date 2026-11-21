@@ -19,8 +19,8 @@
 ## Informações
 Engine escolhida: Godot 4.7  
 Linguagem de programação: GDScript  
-Título do jogo:  
-Gênero:   
+Título do jogo:  Fliper Invader  
+Gênero:   Arcade (Space Invaders)
 
 
 ## Entregas
