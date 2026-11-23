@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c5hrjgh7vdwy4" path="res://Scenes/bullet_catcher.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://4dxfnddxvppy" path="res://Scenes/invader_spawner.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://ddp8nwxiv8iyw" path="res://Scenes/ufo_spawner.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://idxq8rd50jeh" path="res://Scenes/bunker.tscn" id="5_kry3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4t2"]
 size = Vector2(20, 667)
@@ -51,6 +52,22 @@ shape = SubResource("RectangleShape2D_mqvok")
 
 [node name="UfoSpawner" parent="." unique_id=745016871 instance=ExtResource("4_jjvhh")]
 position = Vector2(542, -281)
+
+[node name="Bunker" parent="." unique_id=1921827351 instance=ExtResource("5_kry3j")]
+position = Vector2(-376, 174)
+scale = Vector2(4, 4)
+
+[node name="Bunker2" parent="." unique_id=1485800193 instance=ExtResource("5_kry3j")]
+position = Vector2(-144, 174)
+scale = Vector2(4, 4)
+
+[node name="Bunker3" parent="." unique_id=2054916983 instance=ExtResource("5_kry3j")]
+position = Vector2(144, 174)
+scale = Vector2(4, 4)
+
+[node name="Bunker4" parent="." unique_id=1327689130 instance=ExtResource("5_kry3j")]
+position = Vector2(376, 174)
+scale = Vector2(4, 4)
 
 [connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]
 [connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawner" method="_on_left_wall_area_entered"]
