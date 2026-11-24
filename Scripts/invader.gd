@@ -1,6 +1,9 @@
 extends Area2D
 
 class_name Invader
+
+signal invader_destroyed(points: int)
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -19,4 +22,5 @@ func _on_area_entered(area: Area2D) -> void:
 # remover o alien do jogo depois de tocar a animacao de destruir
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "destroy":
+		invader_destroyed.emit(config.points)
 		queue_free()

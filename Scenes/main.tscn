@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ddp8nwxiv8iyw" path="res://Scenes/ufo_spawner.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://idxq8rd50jeh" path="res://Scenes/bunker.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://cq17fgnxatxsc" path="res://Scenes/life_manager.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://djx4ikq841oja" path="res://Scenes/points_counter.tscn" id="7_344ge"]
+[ext_resource type="Script" uid="uid://ccycc510rk4i8" path="res://Scripts/points_counter.gd" id="8_ynf5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4t2"]
 size = Vector2(20, 667)
@@ -18,7 +20,6 @@ size = Vector2(1141, 57)
 [node name="Player" parent="." unique_id=1476773010 instance=ExtResource("1_jjgbg")]
 unique_name_in_owner = true
 position = Vector2(0, 302)
-scale = Vector2(4, 4)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=244562660]
 
@@ -26,6 +27,7 @@ scale = Vector2(4, 4)
 position = Vector2(0, -315)
 
 [node name="InvaderSpawner" parent="." unique_id=1554357854 instance=ExtResource("3_8gbba")]
+unique_name_in_owner = true
 position = Vector2(0, -190)
 
 [node name="Walls" type="Node" parent="." unique_id=254609610]
@@ -47,6 +49,8 @@ position = Vector2(-576, 2)
 shape = SubResource("RectangleShape2D_bj4t2")
 
 [node name="BottomWall" type="Area2D" parent="Walls" unique_id=609576177]
+collision_layer = 32
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall" unique_id=573639222]
 position = Vector2(2, 297.5)
@@ -73,5 +77,9 @@ scale = Vector2(4, 4)
 
 [node name="LifeManager" parent="." unique_id=674420234 instance=ExtResource("6_21xkr")]
 
+[node name="PointsCounter" parent="." unique_id=1597298703 instance=ExtResource("7_344ge")]
+script = ExtResource("8_ynf5e")
+
 [connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]
 [connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawner" method="_on_left_wall_area_entered"]
+[connection signal="area_entered" from="Walls/BottomWall" to="InvaderSpawner" method="_on_bottom_wall_area_entered"]
