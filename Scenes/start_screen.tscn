@@ -37,8 +37,8 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.08235294, 0.9019608, 0, 1)
 theme_override_fonts/font = ExtResource("2_60ddj")
 theme_override_font_sizes/font_size = 108
-text = "SPACE 
-INVADERS"
+text = "FLIPER 
+INVADER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -66,7 +66,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_60ddj")
 theme_override_font_sizes/font_size = 30
-text = "= 10 POINTS"
+text = "= 10 PONTOS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -87,7 +87,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_60ddj")
 theme_override_font_sizes/font_size = 30
-text = "= 20 POINTS"
+text = "= 20 PONTOS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -108,7 +108,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_60ddj")
 theme_override_font_sizes/font_size = 30
-text = "= 40 POINTS"
+text = "= 40 PONTOS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -118,7 +118,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_60ddj")
 theme_override_font_sizes/font_size = 40
-text = "PLAY SPACE INVADERS"
+text = "JOGAR"
 
 [node name="Timer" type="Timer" parent="." unique_id=1193850442]
 unique_name_in_owner = true
