@@ -101,6 +101,11 @@ func on_invader_destroyed(points: int):
 	invader_destroyed.emit(points)
 	invader_destroyed_count += 1
 	
+	# diminuir o intervalo pro movement_timer, fazendo os aliens se moverem mais rápido
+	# ate um certo ponto pro jogo n ficar muito dificil
+	if movement_timer.wait_time > 0.06:
+		movement_timer.wait_time -= 0.02
+	
 	if invader_destroyed_count == invader_total_count:
 		game_won.emit()
 		shot_timer.stop()

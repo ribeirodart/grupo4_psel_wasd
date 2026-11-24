@@ -6,7 +6,6 @@
 script = ExtResource("1_w52gg")
 
 [node name="MovementTimer" type="Timer" parent="." unique_id=478242732]
-wait_time = 0.25
 autostart = true
 
 [node name="ShotTimer" type="Timer" parent="." unique_id=19823654]
