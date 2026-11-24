@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cq17fgnxatxsc" path="res://Scenes/life_manager.tscn" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://djx4ikq841oja" path="res://Scenes/points_counter.tscn" id="7_344ge"]
 [ext_resource type="Script" uid="uid://ccycc510rk4i8" path="res://Scripts/points_counter.gd" id="8_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://cebm3hmrnw8mj" path="res://Scenes/ui.tscn" id="9_ynf5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4t2"]
 size = Vector2(20, 667)
@@ -76,9 +77,13 @@ position = Vector2(376, 174)
 scale = Vector2(4, 4)
 
 [node name="LifeManager" parent="." unique_id=674420234 instance=ExtResource("6_21xkr")]
+unique_name_in_owner = true
 
 [node name="PointsCounter" parent="." unique_id=1597298703 instance=ExtResource("7_344ge")]
+unique_name_in_owner = true
 script = ExtResource("8_ynf5e")
+
+[node name="UI" parent="." unique_id=312020564 instance=ExtResource("9_ynf5e")]
 
 [connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]
 [connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawner" method="_on_left_wall_area_entered"]
