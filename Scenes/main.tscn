@@ -3,18 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://cv7b8ebbp10qx" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://c5hrjgh7vdwy4" path="res://Scenes/bullet_catcher.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://4dxfnddxvppy" path="res://Scenes/invader_spawner.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bivm6oagdyn6c" path="res://Scenes/right_wall.tscn" id="4_hptm8"]
 [ext_resource type="PackedScene" uid="uid://ddp8nwxiv8iyw" path="res://Scenes/ufo_spawner.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://drt0te1jbn7l6" path="res://Scenes/left_wall.tscn" id="5_6iyac"]
 [ext_resource type="PackedScene" uid="uid://idxq8rd50jeh" path="res://Scenes/bunker.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://cq17fgnxatxsc" path="res://Scenes/life_manager.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://cquj2xhoypwjs" path="res://Scenes/bottom_wall.tscn" id="6_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://djx4ikq841oja" path="res://Scenes/points_counter.tscn" id="7_344ge"]
 [ext_resource type="Script" uid="uid://ccycc510rk4i8" path="res://Scripts/points_counter.gd" id="8_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://cebm3hmrnw8mj" path="res://Scenes/ui.tscn" id="9_ynf5e"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4t2"]
-size = Vector2(20, 667)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqvok"]
-size = Vector2(1141, 57)
 
 [node name="main" type="Node" unique_id=1865341963]
 
@@ -33,29 +30,11 @@ position = Vector2(0, -190)
 
 [node name="Walls" type="Node" parent="." unique_id=254609610]
 
-[node name="RightWall" type="Area2D" parent="Walls" unique_id=783681770]
-collision_layer = 32
-collision_mask = 4
+[node name="RightWall" parent="Walls" unique_id=2105948167 instance=ExtResource("4_hptm8")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall" unique_id=449170713]
-position = Vector2(576, 1.5)
-shape = SubResource("RectangleShape2D_bj4t2")
+[node name="LeftWall" parent="Walls" unique_id=1383762171 instance=ExtResource("5_6iyac")]
 
-[node name="LeftWall" type="Area2D" parent="Walls" unique_id=874058650]
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall" unique_id=349568160]
-position = Vector2(-576, 2)
-shape = SubResource("RectangleShape2D_bj4t2")
-
-[node name="BottomWall" type="Area2D" parent="Walls" unique_id=609576177]
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall" unique_id=573639222]
-position = Vector2(2, 297.5)
-shape = SubResource("RectangleShape2D_mqvok")
+[node name="BottomWall" parent="Walls" unique_id=936567982 instance=ExtResource("6_fdnlq")]
 
 [node name="UfoSpawner" parent="." unique_id=745016871 instance=ExtResource("4_jjvhh")]
 position = Vector2(542, -281)
