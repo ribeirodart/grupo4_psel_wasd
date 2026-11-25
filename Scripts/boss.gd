@@ -20,6 +20,8 @@ const RIGHT_WALL_BOUND_POS: float = 230.0
 
 @onready var shooting_points: Array[Node2D]
 
+func _ready() -> void:
+	print("BOSS HP: ", str(hp))
 
 func _process(delta: float) -> void:
 	global_position.x += speed * delta * movement_direction
@@ -43,3 +45,11 @@ func _on_shooting_timer_timeout() -> void:
 	laser.scale = Vector2(0.5, 0.5)
 	add_child(laser)
 	
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is Laser:
+		area.queue_free()
+		print("BOSS HP: ", str(hp))
+		hp -= 1
+		if hp == 0:
+			queue_free()
