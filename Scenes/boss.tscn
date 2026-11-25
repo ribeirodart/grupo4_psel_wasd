@@ -7,7 +7,6 @@
 size = Vector2(133.59998, 140)
 
 [node name="Boss" type="Area2D" unique_id=871421683]
-position = Vector2(574.00006, 134)
 scale = Vector2(5, 1.5)
 collision_layer = 132
 collision_mask = 34
@@ -22,36 +21,34 @@ scale = Vector2(1.0000002, 1)
 shape = SubResource("RectangleShape2D_0154r")
 debug_color = Color(0.9566123, 7.70092e-07, 0.5395871, 0.41960785)
 
-[node name="ShootingPoints" type="Node" parent="." unique_id=1290662632]
-
-[node name="ShootingPoint1" type="Marker2D" parent="ShootingPoints" unique_id=1099663916]
-unique_name_in_owner = true
-position = Vector2(-261, 97)
-gizmo_extents = 70.0
-
-[node name="ShootingPoint2" type="Marker2D" parent="ShootingPoints" unique_id=1901301949]
-unique_name_in_owner = true
-position = Vector2(-130.5, 97)
-gizmo_extents = 70.0
-
-[node name="ShootingPoint3" type="Marker2D" parent="ShootingPoints" unique_id=2012090341]
-unique_name_in_owner = true
-position = Vector2(0, 97)
-gizmo_extents = 70.0
-
-[node name="ShootingPoint4" type="Marker2D" parent="ShootingPoints" unique_id=926799646]
-unique_name_in_owner = true
-position = Vector2(130.5, 97)
-gizmo_extents = 70.0
-
-[node name="ShootingPoint5" type="Marker2D" parent="ShootingPoints" unique_id=1907915733]
-unique_name_in_owner = true
-position = Vector2(264, 94)
-gizmo_extents = 70.0
-
 [node name="ShootingTimer" type="Timer" parent="." unique_id=1494294600]
 unique_name_in_owner = true
 wait_time = 0.75
 autostart = true
+
+[node name="ShootingPoint1" type="Node2D" parent="." unique_id=33760735]
+unique_name_in_owner = true
+position = Vector2(-52.200012, 64.66667)
+scale = Vector2(0.20000005, 0.6666667)
+
+[node name="ShootingPoint2" type="Node2D" parent="." unique_id=565329250]
+unique_name_in_owner = true
+position = Vector2(-26.100006, 64.66667)
+scale = Vector2(0.20000005, 0.6666667)
+
+[node name="ShootingPoint3" type="Node2D" parent="." unique_id=1725258969]
+unique_name_in_owner = true
+position = Vector2(0, 64.66667)
+scale = Vector2(0.20000005, 0.6666667)
+
+[node name="ShootingPoint4" type="Node2D" parent="." unique_id=1029925546]
+unique_name_in_owner = true
+position = Vector2(26.100006, 64.66667)
+scale = Vector2(0.20000005, 0.6666667)
+
+[node name="ShootingPoint5" type="Node2D" parent="." unique_id=896902316]
+unique_name_in_owner = true
+position = Vector2(52.800003, 62.666668)
+scale = Vector2(0.20000005, 0.6666667)
 
 [connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_timer_timeout"]
