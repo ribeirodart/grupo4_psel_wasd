@@ -2,6 +2,10 @@ extends Node2D
 
 class_name InvaderSpawner
 
+signal invader_destroyed(points: int)
+signal game_won
+signal game_lost
+
 # informacoes do spawner
 const ROWS: int = 5
 const COLUMNS: int = 11
@@ -15,6 +19,9 @@ const INVADERS_POSITION_Y_INCREMENT: int = 20
 var movement_direction: int = 1
 var invader_scene = preload("res://Scenes/invader.tscn")
 var invader_shot_scene = preload("res://Scenes/invader_shot.tscn")
+
+var invader_destroyed_count: int = 0
+var invader_total_count: int = ROWS * COLUMNS
 
 # referencias pro no
 @onready var movement_timer: Timer = $MovementTimer
@@ -61,6 +68,7 @@ func spawn_invader(invader_config, spawn_position: Vector2) -> void:
 	var invader = invader_scene.instantiate() as Invader
 	invader.config = invader_config
 	invader.global_position = spawn_position
+	invader.invader_destroyed.connect(on_invader_destroyed)
 	add_child(invader)
 	
 
@@ -88,4 +96,24 @@ func on_invader_shot():
 	invader_shot.global_position = random_child_position
 	
 	get_tree().root.add_child(invader_shot)
+
+func on_invader_destroyed(points: int):
+	invader_destroyed.emit(points)
+	invader_destroyed_count += 1
 	
+	# diminuir o intervalo pro movement_timer, fazendo os aliens se moverem mais rápido
+	# ate um certo ponto pro jogo n ficar muito dificil
+	if movement_timer.wait_time > 0.06:
+		movement_timer.wait_time -= 0.02
+	
+	if invader_destroyed_count == invader_total_count:
+		game_won.emit()
+		shot_timer.stop()
+		movement_timer.stop()
+		movement_direction = 0
+
+
+func _on_bottom_wall_area_entered(_area: Area2D) -> void:
+	game_lost.emit()
+	movement_timer.stop()
+	movement_direction = 0

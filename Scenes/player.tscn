@@ -49,9 +49,11 @@ _data = {
 }
 
 [node name="Player" type="Area2D" unique_id=1476773010]
+scale = Vector2(4, 4)
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=722463073]
+self_modulate = Color(0, 1, 0, 1)
 texture = ExtResource("2_6t5aa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=358562285]
@@ -65,3 +67,5 @@ laser_scene = ExtResource("4_fkybt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1097054405]
 libraries/ = SubResource("AnimationLibrary_pu2lt")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
