@@ -1,7 +1,8 @@
 extends Area2D
 
 @export var speed: float = 200.0
-@export var hp: int = 30
+@export var hp: int = 100
+const MAX_HP: float = 100.0
 
 var movement_direction = 1
 
@@ -19,6 +20,9 @@ const RIGHT_WALL_BOUND_POS: float = 230.0
 @onready var shooting_point_5: Node2D = %ShootingPoint5
 
 @onready var shooting_points: Array[Node2D]
+
+@onready var stat_bar: StatBar = %StatBar
+
 
 func _ready() -> void:
 	print("BOSS HP: ", str(hp))
@@ -48,8 +52,10 @@ func _on_shooting_timer_timeout() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Laser:
+		stat_bar.update_bar(hp - 20, MAX_HP)
 		area.queue_free()
 		print("BOSS HP: ", str(hp))
-		hp -= 1
+		hp -= 20
 		if hp == 0:
 			queue_free()
+			stat_bar.queue_free()

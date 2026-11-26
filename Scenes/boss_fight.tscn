@@ -3,11 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://crkfbg73o5gwg" path="res://Scenes/boss.tscn" id="1_pdkig"]
 [ext_resource type="PackedScene" uid="uid://cv7b8ebbp10qx" path="res://Scenes/player.tscn" id="2_rc8yv"]
 [ext_resource type="PackedScene" uid="uid://c5hrjgh7vdwy4" path="res://Scenes/bullet_catcher.tscn" id="3_41hqx"]
+[ext_resource type="PackedScene" uid="uid://b3eg403qloh6s" path="res://Scenes/stat_bar.tscn" id="4_wha5u"]
 
 [node name="main" type="Node2D" unique_id=2069244548]
 
 [node name="Boss" parent="." unique_id=871421683 instance=ExtResource("1_pdkig")]
-position = Vector2(0, -203)
+position = Vector2(0, -113.000015)
 
 [node name="Player" parent="." unique_id=1476773010 instance=ExtResource("2_rc8yv")]
 position = Vector2(0, 302)
@@ -16,3 +17,10 @@ position = Vector2(0, 302)
 
 [node name="BulletCatcher" parent="." unique_id=1132660673 instance=ExtResource("3_41hqx")]
 position = Vector2(0, -335)
+
+[node name="StatBar" parent="." unique_id=1876265864 instance=ExtResource("4_wha5u")]
+unique_name_in_owner = true
+offset_left = -567.00006
+offset_top = -312.0
+offset_right = -567.00006
+offset_bottom = -312.0
