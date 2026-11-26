@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b3eg403qloh6s"]
+
+[ext_resource type="Script" uid="uid://cehjox6k8sy1n" path="res://Scripts/stat_bar.gd" id="1_tk80w"]
+[ext_resource type="Texture2D" uid="uid://d55hi56pneua" path="res://Assets/HealthBar/healthbar_bg.png" id="2_46piw"]
+[ext_resource type="Texture2D" uid="uid://c48lctfax0ml0" path="res://Assets/HealthBar/frame health bar.png" id="3_w0730"]
+[ext_resource type="Texture2D" uid="uid://cigmhic1r6c86" path="res://Assets/HealthBar/conteudo_cheio_branco.png" id="4_m0hsx"]
+[ext_resource type="Texture2D" uid="uid://c767kkq2inv3g" path="res://Assets/HealthBar/conteudo_cheio_vermelho.png" id="5_brkwj"]
+
+[node name="StatBar" type="Control" unique_id=1876265864 node_paths=PackedStringArray("back_bar", "front_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(35.36, 1.7199999)
+offset_transform_scale = Vector2(3, 3)
+script = ExtResource("1_tk80w")
+back_bar = NodePath("BackBar")
+front_bar = NodePath("FrontBar")
+
+[node name="BackBar" type="TextureProgressBar" parent="." unique_id=411011223]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_under = ExtResource("2_46piw")
+texture_over = ExtResource("3_w0730")
+texture_progress = ExtResource("4_m0hsx")
+
+[node name="FrontBar" type="TextureProgressBar" parent="." unique_id=988528607]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource("5_brkwj")
